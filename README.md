@@ -1,0 +1,3 @@
+**Phase 1 — Weeks 1–2: Terraform AWS foundation**
+Everything provisioned via Terraform, nothing via the console. Modules for: EKS 1.30 cluster with managed node groups, RDS Postgres (multi-AZ) + RDS MySQL (multi-AZ), ElastiCache Redis cluster, DocumentDB (Mongo-compatible), full VPC with private/public subnets across 3 AZs, IAM roles with IRSA for pod-level AWS permissions, S3 remote state + DynamoDB locking.
+The unique challenge here is a nightly drift detection pipeline — a GitHub Actions scheduled job runs terraform plan and blocks the next deployment if infrastructure has drifted from state. Output posted to Slack.
