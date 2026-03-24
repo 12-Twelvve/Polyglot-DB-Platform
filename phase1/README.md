@@ -19,14 +19,25 @@ Nothing is created via the console. Everything is reproducible and version-contr
 ## Prerequisites
 
 ```bash
-# Terraform >= 1.7
-brew install terraform
+# Terraform >= 1.7  for macos
+#brew install terraform
+
+#for linux
+wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(grep -oP '(?<=UBUNTU_CODENAME=).*' /etc/os-release || lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install terraform
+
+# install aws cli
+$ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
 
 # AWS CLI v2 configured
 aws configure sso  # or export AWS_PROFILE=...
 
 # kubectl
-brew install kubectl
+# sudo apt install kubectl
+
 
 # For drift detection locally
 pip install checkov   # optional but useful
