@@ -3,6 +3,7 @@
 Provisions the entire AWS infrastructure for the Polyglot DB Platform.
 Nothing is created via the console. Everything is reproducible and version-controlled.
 
+
 ## What gets provisioned
 
 | Resource | Module | Notes |
