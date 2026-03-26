@@ -11,7 +11,10 @@ data "aws_ami" "ubuntu" {
 
   owners = ["099720109477"] # Canonical
 }
-
+# Create a VPC
+resource "aws_vpc" "example" {
+  cidr_block = "10.0.0.0/16"
+}
 
 # resource "aws_instance" "app_server" {
 #   ami           = data.aws_ami.ubuntu.id
